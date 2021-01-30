@@ -17,27 +17,58 @@
 .sideupper{
   height: 100px;
   padding: 0,20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #253141;
 }
+
+.user_name a{
+  color: #FAFAFA;
+  font-size: 16px;
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.chat_box a{
+  margin-right: 20px;
+  padding: 14px;
+  font-size: 10px;
+  text-decoration: none;
+  color: deepskyblue;
+  border: 1px solid lightblue;
+}
+
 
 .sidedowner{
   height: calc( 100vh - 100px );
   background-color: #2f3e51;
-  padding: 0,20px;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.room_name_side{
+  padding: 20px 0px 40px;
+}
+
+.chat_rtag a{
+  text-decoration: none;
+  color: white;
 }
 
 .chatupper{
   height: 100px;
-  padding: 0,40px;
+  padding: 0 40px;
 }
 
 .chat_room{
   background-color: #FAFAFA;
   height: calc( 100vh - 100px - 90px );
-  padding: 46px,40px,0;
+  padding: 46px 40px 0;
 }
 
 .nyuryoku{
   height: 90px;
   background-color: #dddddd;
-  padding: 20px, 40px;
+  padding: 20px  40px;
 }
