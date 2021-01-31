@@ -2,13 +2,13 @@
 
  <div class="chat_name_header">
     <div class="chat_name_header_head">
-        hogefuga
+        <%= @room.name %>
     </div>
  </div>
 
   <div class="right_header">
     <div class="chat_exit">
-       <a href="#">チャットを終了する</a>
+       <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
     </div>
   </div>
 
@@ -19,40 +19,7 @@
 
 
 <div class="chat_room">
-  
-   <div class="chat_ohwaku">
-      <div class="chat_status">
-         <div class="chat_nickname">
-            ID
-         </div>
-         <div class="chat_timelog">
-            now
-         </div>
-      </div>
-
-      <div class="chat_message_box">
-         <div class="chat_message">
-            おはよう
-          </div>
-      </div>
-   </div>
-
- <div class="chat_ohwaku">
-      <div class="chat_status">
-         <div class="chat_nickname">
-            SAM
-         </div>
-         <div class="chat_timelog">
-            now
-         </div>
-      </div>
-      
-      <div class="chat_message_box">
-         <div class="chat_message">
-            待ち合わせ場所
-          </div>
-      </div>
-   </div>
+  <%= render partial: 'message',collection: @messages %> 
 
 </div>
 
@@ -60,14 +27,13 @@
 
 
 
-
-<form class="nyuryoku">
-   <div class="form-input">
-      <input class="form-message" placeholder= "type a message">
-      <label class="form-image">
-           <span class="image-file">画像</span>
-           <input type="file" class="hidden">
-      </label>
-   </div>
-   <input class="form-submit" type="submit" value="送信">
-</form>
+<%= form_with model: [@room, @message], class: 'nyuryoku', local: true do |f| %>
+  <div class="form-input">
+    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <%= f.file_field :image, class: 'hidden' %>
+    </label>
+  </div>
+  <%= f.submit '送信', class: 'form-submit' %>
+<% end %>
